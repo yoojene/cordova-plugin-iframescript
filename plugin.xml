@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-iframescript"
+    version="1.0.0">
+    <name>WKWebView / Android Webview iframe script </name>
+    <description>Cordova IframeScript Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,wkuserscript,webview</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/index.js" name="WKUserScript">
+        <clobbers target="window.IFrameScript" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="IFrameScript">
+                <param name="ios-package" value="CDVIFrameScript" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVIFrameScript.h" />
+        <source-file src="src/ios/CDVIFrameScript.m" />
+    </platform>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="IFrameScript">
+                <param name="android-package" value="com.rocketlawyer.cordova.iframescript.IFrameScript" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/IFrameScript.java" target-dir="src/com/rocketlawyer/cordova/iframescript" />
+    </platform>
+</plugin>

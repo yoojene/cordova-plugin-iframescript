@@ -1,0 +1,24 @@
+{
+  "name": "cordova-plugin-iframescript",
+  "version": "0.0.1",
+  "description": "A plugin to allow JavaScript to be run within an iframe on iOS and Android",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cordova",
+    "iframe",
+    "wkuserscript",
+    "webview"
+  ],
+    "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "author": "Eugene Cross <eugene.cross@gmail.com>",
+  "license": "MIT"
+}
