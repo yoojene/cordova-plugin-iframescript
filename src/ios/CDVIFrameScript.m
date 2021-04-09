@@ -80,16 +80,16 @@
     }
 }
 
-- (IFrameScriptInjectionTime) parseInjectionTime:(int)injectionTime
+- (WKUserScriptInjectionTime) parseInjectionTime:(int)injectionTime
 {
     if (injectionTime == 1) {
-        return IFrameScriptInjectionTimeAtDocumentEnd;
+        return WKUserScriptInjectionTimeAtDocumentEnd;
     } else {
-        return IFrameScriptInjectionTimeAtDocumentStart;
+        return WKUserScriptInjectionTimeAtDocumentStart;
     }
 }
 
-- (void) addScript:(NSString*)source injectionTime:(IFrameScriptInjectionTime)injectionTime
+- (void) addScript:(NSString*)source injectionTime:(WKUserScriptInjectionTime)injectionTime
 {
     WKWebView* wkWebView = (WKWebView*)self.webView;
 
