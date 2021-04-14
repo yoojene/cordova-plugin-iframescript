@@ -62,20 +62,8 @@ public class IFrameScript extends CordovaPlugin {
         if (action.equals("addScriptCode")) {
             String scriptName = args.getString(0);
             String script = args.getString(1);
-            String script2 = args.getString(2);
-
-//            JSONObject scriptObj = args.getJSONObject(1);
-//            JSONObject scriptObj2 = args.getJSONObject(2);
-
-            Log.d(TAG, "grabbed arg 0 " + scriptName);
-            Log.d(TAG, "grabbed arg 1 " + script);
-            Log.d(TAG, "grabbed arg 2 " + script2);
-
-
             Log.d(TAG, "about to load " + script);
 
-
-            //.webView.getClass().getMethod("getView").invoke(webView)
             this.addScript(script, callbackContext);
 
             
@@ -97,28 +85,16 @@ public class IFrameScript extends CordovaPlugin {
 
         CordovaWebView view = this.webView;
         Activity activity = this.cordova.getActivity();
-
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Log.d(TAG, "about to load on UI thread " + script + " into webview");
                 view.loadUrlIntoView(script, false);
+
             }
         });
 
 
-
-
-//        Log.d(TAG, "about to load " + script + " into mWebView");
-//        Activity activity = this.cordova.getActivity();
-//        CordovaWebView view;
-//
-//        view = (CordovaWebView).webView.getClass().getMethod("getView").invoke(webView);
-
-
-        //        mWebView.loadUrl(script);
-//        mWebView.init(cordova);
-//        mWebView.loadUrlIntoView(script, false);
 
     }
 
