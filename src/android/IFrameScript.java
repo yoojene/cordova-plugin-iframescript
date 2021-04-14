@@ -95,10 +95,17 @@ public class IFrameScript extends CordovaPlugin {
 
     private void addScript(String script, CallbackContext callbackContext) {
 
+        CordovaWebView view = this.webView;
         Activity activity = this.cordova.getActivity();
-        Log.d(TAG, "about to load " + script + " into webview");
-        View view = this.webView.loadUrlIntoView(script, false);
-        Log.d(TAG, "got a handle on " + view);
+
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "about to load on UI thread " + script + " into webview");
+                view.loadUrlIntoView(script, false);
+            }
+        });
+
 
 
 
